@@ -31,6 +31,7 @@
   position: relative;
   height: auto;
   z-index: 3;
+  padding: 5rem 0;
 }
 
 #player-track {
@@ -40,6 +41,11 @@
   border-radius: 15px 15px 0 0;
   transition: 0.3s ease top;
   z-index: 1;
+  top: 90px;
+}
+
+#player-track.active {
+  top: 0;
 }
 
 #album-name {

@@ -9,13 +9,18 @@ body {
 }
 
 .container.content {
-    padding: 20rem 0;
-    max-width: 40rem;
+    padding: 8rem 0;
+    max-width: 420px;
+}
+
+hr {
+    opacity: 0;
 }
 
 .navigation {
-  background-color: rgba(220, 220, 220, 0.3);;
+  /*background-color: rgba(220, 220, 220, 0.3);;
   border-bottom: .1rem solid #f3f3f3;
+  */
   display: flex;
   max-width: 100%;
   width: 100%;
@@ -23,7 +28,6 @@ body {
 
 .navigation .logo {
   margin: auto;
-  max-width: 30rem;
   padding: 1rem;
 }
 
@@ -42,7 +46,7 @@ body {
 }
 
 #logo-img {
-    width: 12rem;
+    width: 16rem;
     height: auto;
 }
 
