@@ -1,0 +1,73 @@
+body {
+    background-image: url('img/vecteezy_blurred-tropical-beach-background_2073755.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*background-image: linear-gradient( 103.3deg,  rgba(252,225,208,1) 30%, rgba(255,173,214,1) 55.7%, rgba(162,186,245,1) 81.8% );
+   
+    background-repeat: no-repeat;
+    background-attachment: fixed; */
+}
+
+.container.content {
+    padding: 20rem 0;
+    max-width: 40rem;
+}
+
+.navigation {
+  background-color: rgba(220, 220, 220, 0.3);;
+  border-bottom: .1rem solid #f3f3f3;
+  display: flex;
+  max-width: 100%;
+  width: 100%;
+}
+
+.navigation .logo {
+  margin: auto;
+  max-width: 30rem;
+  padding: 1rem;
+}
+
+.navigation .navigation-title {
+    display: flex;
+}
+
+.navigation .navigation-title * {
+    margin: auto;
+}
+
+.navigation .title {
+  font-size: 2rem;
+  padding: 0;
+  text-decoration: none;
+}
+
+#logo-img {
+    width: 12rem;
+    height: auto;
+}
+
+#social {
+    opacity: 70%;
+}
+
+#social a {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+#social img {
+    width: 4rem;
+    height: auto;
+    margin: auto;
+    opacity: 30%;
+    /*filter: grayscale(100%);*/
+}
+#social img:hover {
+    opacity: 100%;
+    /*filter: grayscale(0);*/
+}
+
+.copyright {
+    text-align: center;
+}
