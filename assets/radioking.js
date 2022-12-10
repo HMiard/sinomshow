@@ -1,0 +1,119 @@
+var settings = {
+    'radio_id': 'sinom-show1',
+};
+
+const RADIO_NAME = "Sinom Show Radio"
+const RADIO_ID = settings.radio_id;
+const URL_STREAMING = "https://www.radioking.com/play/" + RADIO_ID;
+const DEFAULT_COVER_ART = "assets/img/vinyl.png";
+const DATE = new Date();
+
+window.addEventListener('DOMContentLoaded', (event) => {
+
+    var player = new Player();
+    player.play();
+
+    getStreamingData();
+
+    setInterval(function () {
+        getStreamingData();
+    }, 5000);
+})
+
+var audio = new Audio(URL_STREAMING);
+
+// Player control
+function Player() {
+    this.play = async function () {
+        await audio.play();
+    };
+
+    this.pause = function () {
+        audio.pause();
+    };
+}
+
+// On play, change the button to pause
+audio.onplay = function () {
+    var botao = document.getElementById('play-pause-button').firstElementChild;
+
+    if (botao.className === 'fa fa-play') {
+        botao.className = 'fa fa-stop';
+    }
+}
+
+// On pause, change the button to play
+audio.onpause = function () {
+    var botao = document.getElementById('playerButton').firstElementChild;
+
+    if (botao.className === 'fa fa-stop') {
+        botao.className = 'fa fa-play';
+    }
+}
+
+function getStreamingData() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        if (this.readyState === 4 && this.status === 200) {
+            if (this.response.length === 0) {
+                console.log('%cdebug', 'font-size: 22px')
+            }
+
+            var data = JSON.parse(this.responseText);
+
+            // Formating characters to UTF-8
+            let song = data.title.replace(/&apos;/g, '\'');
+            let currentSong = song.replace(/&amp;/g, '&');
+
+            let artist = data.artist.replace(/&apos;/g, '\'');
+            let currentArtist = artist.replace(/&amp;/g, '&');
+            currentArtist = currentArtist.replace('  ', ' ');
+
+            // Change the title
+            document.title = currentSong + ' - ' + currentArtist + ' | ' + RADIO_NAME;
+            
+            var currentSongElement = document.getElementById('track-name');
+            var currentArtistElement = document.getElementById('artist-name');
+            var currentAlbumElement = document.getElementById('album-name');
+    
+            if (song !== currentSongElement.innerHTML) {
+                currentSongElement.innerHTML = song;
+                currentArtistElement.innerHTML = artist;
+            }
+            
+
+            var artworkUrl = data.cover ?? DEFAULT_COVER_ART;
+            var coverArt = document.getElementById('albumArt');
+            
+            //document.getElementsByTagName('body')[0].style.background = 'url('+ artworkUrl +') no-repeat center center fixed'
+            //document.getElementsByTagName('body')[0].style.backgroundSize = "cover";
+            coverArt.src = artworkUrl;
+            
+            if ('mediaSession' in navigator) {
+                navigator.mediaSession.metadata = new MediaMetadata({
+                    title: song,
+                    artist: artist,
+                    artwork: [{
+                        src: artworkUrl,
+                        type: 'image/png'
+                    }]
+                });                
+            }
+            
+        }
+    };
+
+    xhttp.open('GET', 'https://api.radioking.io/widget/radio/' + RADIO_ID + '/track/current', true);
+    xhttp.send();
+}
+
+
+function togglePlay() {
+    if (!audio.paused) {
+        audio.pause();
+    } else {
+        audio.load();
+        audio.play();
+    }
+}

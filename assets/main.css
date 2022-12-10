@@ -3,7 +3,7 @@ html {
     min-height: 100%;
 }
 
-body {
+/*body {
     background-image: url('img/bg_blurry_beach.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -14,6 +14,10 @@ body.blurry {
     background-image: linear-gradient( 103.3deg,  rgba(252,225,208,1) 30%, rgba(255,173,214,1) 55.7%, rgba(162,186,245,1) 81.8% );
     background-repeat: no-repeat;
     background-attachment: fixed;
+}*/
+
+body {
+    background: white;
 }
 
 .container.content {
@@ -83,3 +87,14 @@ hr {
 .copyright {
     text-align: center;
 }
+
+#current-track-card {
+    padding: 2rem;
+    box-shadow: 0 30px 80px #656565;
+    border-radius: 15px;
+}
+
+#current-track-md {
+    padding: 2rem;
+}
+
