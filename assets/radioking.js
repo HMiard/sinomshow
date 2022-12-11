@@ -52,13 +52,11 @@ audio.onpause = function () {
 }
 
 function getStreamingData() {
+
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
 
         if (this.readyState === 4 && this.status === 200) {
-            if (this.response.length === 0) {
-                console.log('%cdebug', 'font-size: 22px')
-            }
 
             var data = JSON.parse(this.responseText);
 
@@ -80,6 +78,8 @@ function getStreamingData() {
             if (song !== currentSongElement.innerHTML) {
                 currentSongElement.innerHTML = song;
                 currentArtistElement.innerHTML = artist;
+                
+                updateNext();
             }
             
 
@@ -105,6 +105,36 @@ function getStreamingData() {
     };
 
     xhttp.open('GET', 'https://api.radioking.io/widget/radio/' + RADIO_ID + '/track/current', true);
+    xhttp.send();
+}
+
+function updateNext() {
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            var data = JSON.parse(this.responseText);
+            
+            for (var i = 0; i < 5; i++){
+            
+                var item = data[i];
+                var artworkUrl = item.cover_url ?? DEFAULT_COVER_ART;
+                var coverArt = document.getElementById('next' + i);
+                console.log(item);
+                coverArt.src = artworkUrl;
+                
+              
+            }
+            
+            data.forEach(function (item, index) {
+            
+                var artworkUrl = item.cover ?? DEFAULT_COVER_ART;
+                
+            });
+        }
+    }
+    
+    xhttp.open('GET', 'https://api.radioking.io/widget/radio/' + RADIO_ID + '/track/next', true);
     xhttp.send();
 }
 
