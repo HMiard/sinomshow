@@ -11,7 +11,7 @@ const DATE = new Date();
 window.addEventListener('DOMContentLoaded', (event) => {
 
     var player = new Player();
-    player.play();
+    //player.play();
 
     getStreamingData();
 
@@ -35,7 +35,7 @@ function Player() {
 
 // On play, change the button to pause
 audio.onplay = function () {
-    var botao = document.getElementById('play-pause-button').firstElementChild;
+    var botao = document.getElementById('toggle-play').firstElementChild;
 
     if (botao.className === 'fa fa-play') {
         botao.className = 'fa fa-stop';
@@ -44,7 +44,7 @@ audio.onplay = function () {
 
 // On pause, change the button to play
 audio.onpause = function () {
-    var botao = document.getElementById('playerButton').firstElementChild;
+    var botao = document.getElementById('toggle-play').firstElementChild;
 
     if (botao.className === 'fa fa-stop') {
         botao.className = 'fa fa-play';
@@ -72,11 +72,13 @@ function getStreamingData() {
             document.title = currentSong + ' - ' + currentArtist + ' | ' + RADIO_NAME;
             
             var currentSongElement = document.getElementById('track-name');
+            var currentSongElementControl = document.getElementById('control-track-name').firstElementChild;
             var currentArtistElement = document.getElementById('artist-name');
             var currentAlbumElement = document.getElementById('album-name');
     
             if (song !== currentSongElement.innerHTML) {
                 currentSongElement.innerHTML = song;
+                currentSongElementControl.innerHTML = song;
                 currentArtistElement.innerHTML = artist;
                 
                 updateNext();
@@ -90,6 +92,7 @@ function getStreamingData() {
             //document.getElementsByTagName('body')[0].style.backgroundSize = "cover";
             coverArt.src = artworkUrl;
             
+            /*
             if ('mediaSession' in navigator) {
                 navigator.mediaSession.metadata = new MediaMetadata({
                     title: song,
@@ -100,6 +103,9 @@ function getStreamingData() {
                     }]
                 });                
             }
+            */
+            
+            
             
         }
     };

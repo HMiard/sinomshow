@@ -52,22 +52,31 @@ body {
 
 #logo-img {
     width: auto;
-    height:90px;
+    height: 90px;
     z-index: 5;
 }
 
-.navigation .navigation-title {
-    display: flex;
+.navigation .controls {
+    position: relative;
+    top: 20px;
 }
 
-.navigation .navigation-title * {
+.navigation .controls * {
+    display: flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.navigation .controls button {
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-size: 2rem;
     margin: auto;
 }
 
-.navigation .title {
-  font-size: 2rem;
-  padding: 0;
-  text-decoration: none;
+.navigation .controls marquee {
+    margin: auto;
 }
 
 #social {
