@@ -42,6 +42,7 @@ body {
   height: 80px;
   background-color: rgba(255, 255, 255, 1);;
   border-bottom: 4px solid black;
+  z-index: 1000;
 }
 
 .navigation .logo {
@@ -79,6 +80,15 @@ body {
     margin: auto;
 }
 
+#nav-underline {
+    position: fixed;
+    top: 85px;
+    width: 100%;
+    height: 4px;
+    background-color: #F3000B;
+    z-index: -1;
+}
+
 #social {
     opacity: 70%;
 }
@@ -105,6 +115,9 @@ body {
     text-align: center;
 }
 
+#viewport > .column {
+  padding: 0;
+}
 
 #right-col {
     flex: 0 0 85%;
@@ -120,7 +133,7 @@ body {
     width: 100%;
     max-width: 60rem;
     padding: 2rem;
-    box-shadow: 0 30px 80px #656565;
+    box-shadow: 0 5px 8px #AAA;
     border-radius: 15px;
 }
 
