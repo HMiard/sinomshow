@@ -127,9 +127,12 @@ function updateNext() {
                 var item = data[i + 1];
                 var artworkUrl = item.cover_url ?? DEFAULT_COVER_ART;
                 var coverArt = document.getElementById('next' + i);
-                console.log(item);
-                coverArt.src = artworkUrl;
+                var artistName = document.getElementById('next-artist-name-' + i);
+                var trackName = document.getElementById('next-track-name-' + i);
                 
+                coverArt.src = artworkUrl;
+                artistName.innerHTML = item.artist;
+                trackName.innerHTML = item.title;
               
             }
             

@@ -91,7 +91,7 @@ body {
     width: 100%;
     height: 4px;
     background-color: #F3000B;
-    z-index: -1;
+    z-index: 900;
 }
 
 #social {
@@ -150,6 +150,10 @@ body {
     width: auto;
 }
 
+#artist-name {
+    font-weight: bold;
+}
+
 #next {
     border-top: 5px solid black;
 }
@@ -157,6 +161,32 @@ body {
 #next .row {
   margin-left: 0;
   width: 100%;
+}
+
+#next .row .column {
+  position: relative;
+}
+
+#next .overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  padding: 2rem;
+  color: black;
+    
+  background: rgba(255, 255, 255, 0.75);
+  opacity: 0;
+  text-align: center;
+}
+
+#next .overlay:hover {
+  opacity: 1;
+}
+
+#next .overlay .overlay-artist {
+  font-weight: bold;
 }
 
 #next .next-image {
