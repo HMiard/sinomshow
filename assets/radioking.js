@@ -123,7 +123,8 @@ function updateNext() {
             
             for (var i = 0; i < 5; i++){
             
-                var item = data[i];
+                // Note: compensating offset
+                var item = data[i + 1];
                 var artworkUrl = item.cover_url ?? DEFAULT_COVER_ART;
                 var coverArt = document.getElementById('next' + i);
                 console.log(item);
@@ -140,7 +141,8 @@ function updateNext() {
         }
     }
     
-    xhttp.open('GET', 'https://api.radioking.io/widget/radio/' + RADIO_ID + '/track/next', true);
+    // Note: no offset parameter as it seems
+    xhttp.open('GET', 'https://api.radioking.io/widget/radio/' + RADIO_ID + '/track/history?limit=6', true);
     xhttp.send();
 }
 
