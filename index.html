@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/normalize.css">
     <link rel="stylesheet" href="assets/milligram.css">
     <link rel="stylesheet" href="assets/main.css">
+    <link rel="stylesheet" href="assets/queries.css">
     <!--<link rel="stylesheet" href="assets/player.css">-->
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,12 +20,13 @@
 <body>
 
 <nav class="navigation">
-    <section class="container">
+    
+    <section id="nav-main" class="container">
         <div class="row">
             <div class="column">
                 <div class="controls row">
-                    <div id="play-btn" class="column column-25">
-                        <button id="toggle-play" type="button" onclick="togglePlay()">
+                    <div class="play-btn column column-25">
+                        <button class="toggle-play" type="button" onclick="togglePlay()">
                             <i class="fa fa-play"></i>
                         </button>
                     </div>
@@ -39,7 +41,7 @@
             <div class="column">
                 <div class="logo">
                     <a class="navigation-title" href="" title="Sinom Show Radio">
-                        <img id="logo-img" src="assets/img/nv-logo-sinomshow-2.jpg" alt="Sinom Show">
+                        <img class="logo-img" src="assets/img/nv-logo-sinomshow-2.jpg" alt="Sinom Show">
                     </a>
                 </div>
             </div>
@@ -66,7 +68,17 @@
         </div>
     </section>
     
-    
+    <section id="nav-small" class="container">
+        <div class="row">
+            <div class="column">
+                <div class="logo">
+                    <a class="navigation-title" href="" title="Sinom Show Radio">
+                        <img class="logo-img" src="assets/img/nv-logo-sinomshow-2.jpg" alt="Sinom Show">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 </nav>
 
 <div id="nav-underline"></div>
@@ -171,6 +183,16 @@
             </div>-->
         </div>
 
+    </section>
+    
+    <section id="controls-small" class="container">
+        <div class="controls row">
+            <div class="play-btn column column-33 column-offset-33">
+                <button class="toggle-play" type="button" onclick="togglePlay()">
+                    <i class="fa fa-play"></i>
+                </button>
+            </div>
+        </div>
     </section>
 </main>
 

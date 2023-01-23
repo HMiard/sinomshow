@@ -1,0 +1,48 @@
+#nav-small {
+    display: none;
+}
+
+#controls-small {
+    display: none;
+}
+
+@media only screen and (max-width: 768px){
+
+    .navigation {
+        position: relative;
+    }
+    
+    #nav-underline {
+        position: absolute;
+    }
+
+    #nav-main {
+        display: none;
+    }
+
+    #nav-small {
+        display: block;
+    }
+    
+    #controls-small {
+        display: block;
+    }
+    
+    .content {
+        margin-top: 8rem;
+    }
+    
+    #current {
+        padding: 0;
+    }
+    
+    #current-track-card {
+        padding: 0;
+    }
+    
+    #current-track-card .column {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+}

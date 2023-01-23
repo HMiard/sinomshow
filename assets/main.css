@@ -60,26 +60,27 @@ body {
 .navigation .logo {
   position: relative;
   margin: auto;
+  text-align: center;
 }
 
-#logo-img {
+.logo-img {
     position: relative;
     width: auto;
     height: 90px;
     z-index: 5;
 }
 
-.navigation .controls {
+.controls {
     position: relative;
 }
 
-.navigation .controls * {
+.controls * {
     display: flex;
     align-items:center;
     justify-content:center;
 }
 
-.navigation .controls button {
+.controls button {
     background-color: transparent;
     border: none;
     color: black;
@@ -87,8 +88,21 @@ body {
     margin: auto;
 }
 
-.navigation .controls marquee {
+.controls marquee {
     margin: auto;
+}
+
+#controls-small {
+    position: fixed;
+    bottom: 0;
+    background: white;
+    z-index: 999;
+    border-top: 5px solid black;
+    padding: 2rem 0;
+}
+
+#controls-small .toggle-play {
+    font-size: 4rem;
 }
 
 #nav-underline {

@@ -35,20 +35,27 @@ function Player() {
 
 // On play, change the button to pause
 audio.onplay = function () {
-    var botao = document.getElementById('toggle-play').firstElementChild;
 
-    if (botao.className === 'fa fa-play') {
-        botao.className = 'fa fa-stop';
-    }
+    document.querySelectorAll('.toggle-play').forEach(function(e) {
+       var botao = e.firstElementChild;
+           
+       if (botao.className === 'fa fa-play') {
+           botao.className = 'fa fa-stop';
+       }
+    });
+    
 }
 
 // On pause, change the button to play
 audio.onpause = function () {
-    var botao = document.getElementById('toggle-play').firstElementChild;
 
-    if (botao.className === 'fa fa-stop') {
-        botao.className = 'fa fa-play';
-    }
+    document.querySelectorAll('.toggle-play').forEach(function(e) {
+       var botao = e.firstElementChild;
+           
+       if (botao.className === 'fa fa-stop') {
+           botao.className = 'fa fa-play';
+       }
+    });
 }
 
 function getStreamingData() {
